@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 
 namespace SFML.System
 {
@@ -11,7 +12,7 @@ namespace SFML.System
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
     [Serializable]
-    public struct Time : IEquatable<Time>, IComparable<Time>
+    public struct Time : IEquatable<Time>, IComparable<Time>, ISerializable
     {
         ////////////////////////////////////////////////////////////
         /// <summary>
@@ -301,10 +302,42 @@ namespace SFML.System
         {
             return microseconds.CompareTo(other.microseconds);
         }
+
+        ////////////////////////////////////////////////////////////
+        /// <summary>
+        /// Returns the time value as a number of microseconds
+        /// </summary>
+        ////////////////////////////////////////////////////////////
+        public long Microseconds => AsMicroseconds();
+
+        ////////////////////////////////////////////////////////////
+        /// <summary>
+        /// Returns the time value as a number of milliseconds
+        /// </summary>
+        ////////////////////////////////////////////////////////////
+        public int Milliseconds => AsMilliseconds();
+
+        ////////////////////////////////////////////////////////////
+        /// <summary>
+        /// Returns the time value as a number of seconds
+        /// </summary>
+        ////////////////////////////////////////////////////////////
+        public float Seconds => AsSeconds();
+
         private long microseconds;
 
         public static implicit operator TimeSpan(Time t) => new TimeSpan(t.microseconds * 10);
         public static implicit operator Time(TimeSpan t) => FromMicroseconds(t.Ticks - 10);
+
+        public Time(SerializationInfo info, StreamingContext context)
+        {
+            microseconds = info.GetInt64("ms");
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("ms", microseconds);
+        }
 
         #region Imports
         [DllImport("csfml-system-2", CallingConvention = CallingConvention.Cdecl), SuppressUnmanagedCodeSecurity]
