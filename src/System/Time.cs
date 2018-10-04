@@ -10,8 +10,8 @@ namespace SFML.System
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
-    public struct Time : IEquatable<Time>
     [Serializable]
+    public struct Time : IEquatable<Time>, IComparable<Time>
     {
         ////////////////////////////////////////////////////////////
         /// <summary>
@@ -297,6 +297,10 @@ namespace SFML.System
             return microseconds.GetHashCode();
         }
 
+        public int CompareTo(Time other)
+        {
+            return microseconds.CompareTo(other.microseconds);
+        }
         private long microseconds;
 
         public static implicit operator TimeSpan(Time t) => new TimeSpan(t.microseconds * 10);
