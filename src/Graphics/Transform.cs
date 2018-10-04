@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 using SFML.System;
+using System;
 
 namespace SFML.Graphics
 {
@@ -10,6 +11,7 @@ namespace SFML.Graphics
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Transform
     {
         ////////////////////////////////////////////////////////////

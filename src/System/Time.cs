@@ -11,6 +11,7 @@ namespace SFML.System
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
     public struct Time : IEquatable<Time>
+    [Serializable]
     {
         ////////////////////////////////////////////////////////////
         /// <summary>

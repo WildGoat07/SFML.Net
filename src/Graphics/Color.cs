@@ -1,5 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using System.Runtime;
 
 namespace SFML.Graphics
 {
@@ -9,6 +11,7 @@ namespace SFML.Graphics
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Color : IEquatable<Color>
     {
         ////////////////////////////////////////////////////////////

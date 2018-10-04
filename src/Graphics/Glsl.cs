@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using SFML.System;
+using System;
 
 namespace SFML.Graphics.Glsl
 {
@@ -10,6 +11,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Vec2
     {
         ////////////////////////////////////////////////////////////
@@ -59,6 +61,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Ivec2
     {
         ////////////////////////////////////////////////////////////
@@ -108,6 +111,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Bvec2
     {
         ////////////////////////////////////////////////////////////
@@ -138,6 +142,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Vec3
     {
         ////////////////////////////////////////////////////////////
@@ -193,6 +198,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Ivec3
     {
         ////////////////////////////////////////////////////////////
@@ -226,6 +232,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Bvec3
     {
         ////////////////////////////////////////////////////////////
@@ -261,6 +268,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Vec4
     {
         ////////////////////////////////////////////////////////////
@@ -314,6 +322,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Ivec4
     {
         ////////////////////////////////////////////////////////////
@@ -364,6 +373,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Bvec4
     {
         ////////////////////////////////////////////////////////////
@@ -404,6 +414,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public unsafe struct Mat3
     {
         ////////////////////////////////////////////////////////////
@@ -453,6 +464,7 @@ namespace SFML.Graphics.Glsl
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public unsafe struct Mat4
     {
         ////////////////////////////////////////////////////////////

@@ -10,6 +10,7 @@ namespace SFML.System
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Vector3f : IEquatable<Vector3f>
     {
         ////////////////////////////////////////////////////////////

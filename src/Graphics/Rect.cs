@@ -11,6 +11,7 @@ namespace SFML.Graphics
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct IntRect : IEquatable<IntRect>
     {
         ////////////////////////////////////////////////////////////
@@ -239,6 +240,7 @@ namespace SFML.Graphics
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct FloatRect : IEquatable<FloatRect>
     {
         ////////////////////////////////////////////////////////////

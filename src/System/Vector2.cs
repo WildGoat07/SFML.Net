@@ -10,6 +10,7 @@ namespace SFML.System
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Vector2f : IEquatable<Vector2f>
     {
         ////////////////////////////////////////////////////////////
@@ -216,6 +217,7 @@ namespace SFML.System
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Vector2i : IEquatable<Vector2i>
     {
         ////////////////////////////////////////////////////////////
@@ -422,6 +424,7 @@ namespace SFML.System
     /// </summary>
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
+    [Serializable]
     public struct Vector2u : IEquatable<Vector2u>
     {
         ////////////////////////////////////////////////////////////
