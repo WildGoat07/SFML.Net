@@ -6,3 +6,5 @@ doc/build/*xml
 *.manifest
 *.pdb
 *.suo
+build/vc2010/packages
+build/vc2010/.vs
