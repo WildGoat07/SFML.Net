@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using SFML.System;
 using System;
+using System.Runtime.Serialization;
 
 namespace SFML.Graphics
 {
@@ -12,7 +13,7 @@ namespace SFML.Graphics
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
     [Serializable]
-    public struct Transform
+    public struct Transform : ISerializable
     {
         ////////////////////////////////////////////////////////////
         /// <summary>
@@ -311,6 +312,32 @@ namespace SFML.Graphics
         internal float m00, m01, m02;
         internal float m10, m11, m12;
         internal float m20, m21, m22;
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("00", m00);
+            info.AddValue("01", m01);
+            info.AddValue("02", m02);
+            info.AddValue("10", m10);
+            info.AddValue("11", m11);
+            info.AddValue("12", m12);
+            info.AddValue("20", m20);
+            info.AddValue("21", m21);
+            info.AddValue("22", m22);
+        }
+
+        public Transform(SerializationInfo info, StreamingContext context)
+        {
+            m00 = info.GetSingle("00");
+            m01 = info.GetSingle("01");
+            m02 = info.GetSingle("02");
+            m10 = info.GetSingle("10");
+            m11 = info.GetSingle("11");
+            m12 = info.GetSingle("12");
+            m20 = info.GetSingle("20");
+            m21 = info.GetSingle("21");
+            m22 = info.GetSingle("22");
+        }
 
         #region Imports
         [DllImport("csfml-graphics-2", CallingConvention = CallingConvention.Cdecl), SuppressUnmanagedCodeSecurity]
