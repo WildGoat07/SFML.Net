@@ -221,6 +221,8 @@ namespace SFML.Graphics
         }
         public static implicit operator IntRect(Tuple<int, int, int, int> tuple) => new IntRect(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
         public static implicit operator IntRect(Tuple<Vector2i, Vector2i> tuple) => new IntRect(tuple.Item1, tuple.Item2);
+        public static implicit operator IntRect((int, int, int, int) tuple) => new IntRect(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
+        public static implicit operator IntRect((Vector2i, Vector2i) tuple) => new IntRect(tuple.Item1, tuple.Item2);
 
         /// <summary>Left coordinate of the rectangle</summary>
         public int Left;
@@ -453,6 +455,9 @@ namespace SFML.Graphics
 
         public static implicit operator FloatRect(Tuple<float, float, float, float> tuple) => new FloatRect(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
         public static implicit operator FloatRect(Tuple<Vector2f, Vector2f> tuple) => new FloatRect(tuple.Item1, tuple.Item2);
+        public static implicit operator FloatRect(ValueTuple<float, float, float, float> tuple) => new FloatRect(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
+        public static implicit operator FloatRect(ValueTuple<Vector2f, Vector2f> tuple) => new FloatRect(tuple.Item1, tuple.Item2);
+
         /// <summary>Left coordinate of the rectangle</summary>
         public float Left;
 
