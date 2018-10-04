@@ -63,6 +63,15 @@ namespace SFML.Graphics
 
         ////////////////////////////////////////////////////////////
         /// <summary>
+        /// Check if a point is inside the rectangle's area
+        /// </summary>
+        /// <param name="vec">Coordinates of the point to test</param>
+        /// <returns>True if the point is inside</returns>
+        ////////////////////////////////////////////////////////////
+        public bool Contains(Vector2i vec) => Contains(vec.X, vec.Y);
+
+        ////////////////////////////////////////////////////////////
+        /// <summary>
         /// Check intersection between two rectangles
         /// </summary>
         /// <param name="rect"> Rectangle to test</param>
@@ -275,6 +284,15 @@ namespace SFML.Graphics
             : this(position.X, position.Y, size.X, size.Y)
         {
         }
+
+        ////////////////////////////////////////////////////////////
+        /// <summary>
+        /// Check if a point is inside the rectangle's area
+        /// </summary>
+        /// <param name="vec">Coordinates of the point to test</param>
+        /// <returns>True if the point is inside</returns>
+        ////////////////////////////////////////////////////////////
+        public bool Contains(Vector2f vec) => Contains(vec.X, vec.Y);
 
         ////////////////////////////////////////////////////////////
         /// <summary>
