@@ -299,6 +299,9 @@ namespace SFML.System
 
         private long microseconds;
 
+        public static implicit operator TimeSpan(Time t) => new TimeSpan(t.microseconds * 10);
+        public static implicit operator Time(TimeSpan t) => FromMicroseconds(t.Ticks - 10);
+
         #region Imports
         [DllImport("csfml-system-2", CallingConvention = CallingConvention.Cdecl), SuppressUnmanagedCodeSecurity]
         static extern Time sfSeconds(float Amount);

@@ -4,6 +4,7 @@ using System.Security;
 using System.IO;
 using SFML.Window;
 using SFML.System;
+using System.Drawing;
 
 namespace SFML.Graphics
 {
@@ -164,6 +165,23 @@ namespace SFML.Graphics
         public Image(Image copy) :
             base(sfImage_copy(copy.CPointer))
         {
+        }
+
+        ////////////////////////////////////////////////////////////
+        /// <summary>
+        /// Construct the image from another image
+        /// </summary>
+        /// <param name="copy">Image to copy</param>
+        ////////////////////////////////////////////////////////////
+        public Image(Bitmap copy) : this((uint)copy.Size.Width, (uint)copy.Size.Height)
+        {
+            for(int i = 0;i<Size.X;i++)
+            {
+                for (int j = 0;j<Size.Y;j++)
+                {
+                    SetPixel((uint)i, (uint)j, copy.GetPixel(i, j));
+                }
+            }
         }
 
         ////////////////////////////////////////////////////////////
@@ -355,6 +373,21 @@ namespace SFML.Graphics
         protected override void Destroy(bool disposing)
         {
             sfImage_destroy(CPointer);
+        }
+
+        public static explicit operator Image(Bitmap img) => new Image(img);
+        public static explicit operator Bitmap(Image img)
+        {
+            int x = (int)img.Size.X, y = (int)img.Size.Y;
+            var bitmap = new Bitmap(x, y);
+            for(int i = 0;i<x;i++)
+            {
+                for(int j = 0;j<y;j++)
+                {
+                    bitmap.SetPixel(i, j, img.GetPixel((uint)i, (uint)j));
+                }
+            }
+            return bitmap;
         }
 
         #region Imports

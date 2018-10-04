@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Runtime;
+using SysDrawing = System.Drawing;
 
 namespace SFML.Graphics
 {
@@ -241,5 +242,7 @@ namespace SFML.Graphics
 
         /// <summary>Predefined (black) transparent color</summary>
         public static readonly Color Transparent = new Color(0, 0, 0, 0);
+        public static implicit operator Color(SysDrawing.Color color) => new Color(color.R, color.G, color.B, color.A);
+        public static implicit operator SysDrawing.Color(Color color) => SysDrawing.Color.FromArgb(color.A, color.R, color.G, color.B);
     }
 }
