@@ -237,6 +237,17 @@ namespace SFML.Graphics
             Scale(factors.X, factors.Y, center.X, center.Y);
         }
 
+        /// <summary>
+        /// The 3x3 matrix representing the Transform.
+        /// </summary>
+        public float[,] Matrix => new float[,] { { m00, m01, m02}, { m10, m11, m12 },{ m20, m21, m22 } };
+
+        /// <summary>
+        /// Returns a copy of the 3x3 matrix representing the Transform.
+        /// </summary>
+        /// <returns>Copy of the matrix</returns>
+        public float[,] GetMatrix() => Matrix;
+
         ////////////////////////////////////////////////////////////
         /// <summary>
         /// Overload of binary operator * to combine two transforms.
