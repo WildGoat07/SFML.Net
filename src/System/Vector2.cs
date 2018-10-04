@@ -203,6 +203,7 @@ namespace SFML.System
             return new Vector2u((uint)v.X, (uint)v.Y);
         }
 
+        public static implicit operator Vector2f(Tuple<float, float> tuple) => new Vector2f(tuple.Item1, tuple.Item2);
         /// <summary>X (horizontal) component of the vector</summary>
         public float X;
 
@@ -410,6 +411,7 @@ namespace SFML.System
             return new Vector2u((uint)v.X, (uint)v.Y);
         }
 
+        public static implicit operator Vector2i(Tuple<int, int> tuple) => new Vector2i(tuple.Item1, tuple.Item2);
         /// <summary>X (horizontal) component of the vector</summary>
         public int X;
 
@@ -605,6 +607,7 @@ namespace SFML.System
             return new Vector2f((float)v.X, (float)v.Y);
         }
 
+        public static implicit operator Vector2u(Tuple<uint, uint> tuple) => new Vector2u(tuple.Item1, tuple.Item2);
         /// <summary>X (horizontal) component of the vector</summary>
         public uint X;
 

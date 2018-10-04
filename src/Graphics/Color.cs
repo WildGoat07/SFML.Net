@@ -242,6 +242,9 @@ namespace SFML.Graphics
 
         /// <summary>Predefined (black) transparent color</summary>
         public static readonly Color Transparent = new Color(0, 0, 0, 0);
+
+        public static implicit operator Color(Tuple<byte, byte, byte> tuple) => new Color(tuple.Item1, tuple.Item2, tuple.Item3);
+        public static implicit operator Color(Tuple<byte, byte, byte, byte> tuple) => new Color(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
         public static implicit operator Color(SysDrawing.Color color) => new Color(color.R, color.G, color.B, color.A);
         public static implicit operator SysDrawing.Color(Color color) => SysDrawing.Color.FromArgb(color.A, color.R, color.G, color.B);
     }

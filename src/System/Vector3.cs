@@ -184,6 +184,7 @@ namespace SFML.System
                    Z.GetHashCode();
         }
 
+        public static implicit operator Vector3f(Tuple<float, float, float> tuple) => new Vector3f(tuple.Item1, tuple.Item2, tuple.Item3);
         /// <summary>X (horizontal) component of the vector</summary>
         public float X;
 
