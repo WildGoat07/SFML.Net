@@ -12,7 +12,7 @@ namespace SFML.System
     ////////////////////////////////////////////////////////////
     [StructLayout(LayoutKind.Sequential)]
     [Serializable]
-    public struct Time : IEquatable<Time>, IComparable<Time>, ISerializable
+    public struct Time : IEquatable<Time>, IComparable, IComparable<Time>, ISerializable
     {
         ////////////////////////////////////////////////////////////
         /// <summary>
@@ -327,7 +327,7 @@ namespace SFML.System
         private long microseconds;
 
         public static implicit operator TimeSpan(Time t) => new TimeSpan(t.microseconds * 10);
-        public static implicit operator Time(TimeSpan t) => FromMicroseconds(t.Ticks - 10);
+        public static implicit operator Time(TimeSpan t) => FromMicroseconds(t.Ticks / 10);
 
         public Time(SerializationInfo info, StreamingContext context)
         {
@@ -338,6 +338,7 @@ namespace SFML.System
         {
             info.AddValue("ms", microseconds);
         }
+        public int CompareTo(object obj) => CompareTo((Time)obj);
 
         #region Imports
         [DllImport("csfml-system-2", CallingConvention = CallingConvention.Cdecl), SuppressUnmanagedCodeSecurity]
@@ -357,6 +358,7 @@ namespace SFML.System
 
         [DllImport("csfml-system-2", CallingConvention = CallingConvention.Cdecl), SuppressUnmanagedCodeSecurity]
         static extern long sfTime_asMicroseconds(Time time);
+
         #endregion
     }
 }
